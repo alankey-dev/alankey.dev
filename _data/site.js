@@ -33,7 +33,8 @@ export default {
     id: "tag:alankey.dev,2026:feed",
   },
   themeColor: {
-    light: "#fdfcf7",
+    light: "#f6f7f4",
+    dark: "#131a16",
   },
   sourceRepo: "https://github.com/alankey-dev/alankey.dev",
 };
