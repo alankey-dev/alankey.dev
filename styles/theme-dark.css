@@ -1,0 +1,12 @@
+/* Reserved for future per-component overrides. v1 ships light only:
+ * the brand palette is cream paper with near-black ink, and the site
+ * does not respond to prefers-color-scheme.
+ *
+ * If dark mode is reintroduced (which would require an amendment to
+ * Constitution Principle III), restore the @media (prefers-color-scheme:
+ * dark) block to tokens.css and add per-component overrides here.
+ */
+
+@layer theme {
+  /* intentionally empty in v1 */
+}

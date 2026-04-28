@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title and title !== site.name %}{{ title }} · {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+<meta name="description" content="{{ description or site.tagline }}">
+<meta name="theme-color" content="{{ site.themeColor.light }}">
+<link rel="preload" href="/assets/fonts/google-sans-flex-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/rosarivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="canonical" href="{{ site.baseUrl }}{{ page.url }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.feed.path }}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="alternate icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ description or site.tagline }}">
+<meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:image" content="{{ site.baseUrl }}{{ ogImage or '/assets/og-default.png' }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title or site.name }}">
+<meta name="twitter:description" content="{{ description or site.tagline }}">
+<meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage or '/assets/og-default.png' }}">
+{% if isPost %}
+<meta property="article:published_time" content="{{ date | isoDate }}">
+{% if updated %}<meta property="article:modified_time" content="{{ updated | isoDate }}">{% endif %}
+<meta property="article:author" content="{{ site.author.name }}">
+{% endif %}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    {% include "meta.njk" %}
+    <style>{% inlineCSS "tokens.css", "base.css", "layout.css", "content.css", "theme-dark.css" %}</style>
+  </head>
+  <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main" class="site-main {% if wide %}site-main--wide{% endif %}">
+      {% if not isHome %}
+        <p class="back-home"><a href="/">&larr; alankey.dev</a></p>
+      {% endif %}
+      {{ content | safe }}
+    </main>
+    {% include "footer.njk" %}
+    {% if isPost %}
+      <script type="module" src="/scripts/code-copy.mjs"></script>
+    {% endif %}
+  </body>
+</html>

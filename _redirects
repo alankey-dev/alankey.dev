@@ -1,0 +1,5 @@
+# Cloudflare Pages redirect rules.
+# Format: <from> <to> <status>
+# Empty by design at v1 launch. Add rules here only when a published URL
+# must change. Every entry MUST be cross-referenced from
+# docs/url-exceptions.md.

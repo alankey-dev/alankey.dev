@@ -1,0 +1,6 @@
+cache = true
+max_concurrency = 8
+accept = [200, 206, 301, 302, 304]
+exclude_path = ["_site/_redirects"]
+require_https = false
+include_fragments = true

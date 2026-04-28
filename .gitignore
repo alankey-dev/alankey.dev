@@ -1,0 +1,14 @@
+node_modules/
+_site/
+.lighthouseci/
+.DS_Store
+*.log
+coverage/
+.env
+.env.*
+!.env.example
+
+# Claude Code worktrees and skills (local development only)
+.claude/worktrees/
+.claude/skills/
+.specify/

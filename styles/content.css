@@ -1,0 +1,230 @@
+@layer content {
+  .prose {
+    --measure: 65ch;
+
+    max-inline-size: var(--measure);
+    font-size: var(--step-0);
+  }
+
+  .prose > * + * {
+    margin-block-start: var(--space-5);
+  }
+
+  .prose h2 {
+    margin-block-start: var(--space-7);
+    font-size: var(--step-3);
+  }
+
+  .prose h3 {
+    margin-block-start: var(--space-6);
+    font-size: var(--step-2);
+  }
+
+  .prose h4 {
+    margin-block-start: var(--space-5);
+    font-size: var(--step-1);
+  }
+
+  .prose p,
+  .prose li {
+    text-wrap: pretty;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-inline-start: var(--space-6);
+  }
+
+  .prose li + li {
+    margin-block-start: var(--space-2);
+  }
+
+  .prose blockquote {
+    border-inline-start: 3px solid var(--brand-sage);
+    padding-inline-start: var(--space-4);
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .prose :is(p, li) code {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+  }
+
+  .prose pre {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    position: relative;
+  }
+
+  /* Shiki: light theme only in v1. */
+  .prose .shiki,
+  .prose .shiki span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
+
+  .prose figure {
+    margin-block: var(--space-6);
+  }
+
+  .prose figcaption {
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    margin-block-start: var(--space-2);
+    text-align: center;
+  }
+
+  .prose img,
+  .prose picture {
+    border-radius: var(--radius-md);
+  }
+
+  /* Footnotes */
+  .prose .footnotes {
+    margin-block-start: var(--space-7);
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  .prose .footnotes ol {
+    padding-inline-start: var(--space-5);
+  }
+
+  /* Heading anchors (set by markdown-it-anchor) */
+  .prose :is(h2, h3, h4):target {
+    scroll-margin-block-start: var(--space-6);
+  }
+
+  /* Copy-code button (added by scripts/code-copy.mjs) */
+  .prose .code-copy {
+    position: absolute;
+    inset-block-start: var(--space-2);
+    inset-inline-end: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    background: var(--surface-elevated);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    font-size: var(--step--1);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--easing);
+  }
+
+  .prose pre:hover .code-copy,
+  .prose .code-copy:focus-visible {
+    opacity: 1;
+  }
+
+  /* Post chrome */
+  .post-meta {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    margin-block: var(--space-3) var(--space-6);
+  }
+
+  .post-meta time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post-footer {
+    margin-block-start: var(--space-8);
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--rule);
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    font-size: var(--step--1);
+  }
+
+  /* Post-card list */
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-list > li + li {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid var(--rule);
+  }
+
+  .post-card__title {
+    font-size: var(--step-2);
+    margin-block-end: var(--space-2);
+  }
+
+  .post-card__title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .post-card__title a:hover {
+    color: var(--link);
+  }
+
+  .post-card__meta {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    margin-block-end: var(--space-3);
+  }
+
+  /* Hero: logo-forward home page. */
+  .hero--logo {
+    padding-block: var(--space-6) var(--space-7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+
+  .hero__logo {
+    inline-size: min(90%, 480px);
+    block-size: auto;
+    aspect-ratio: 1000 / 600;
+
+    /* Hint to the renderer that this is a vector and edges should stay sharp. */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .hero__intro {
+    max-inline-size: 52ch;
+    font-size: var(--step-1);
+    color: var(--ink-muted);
+  }
+
+  .hero__intro p + p {
+    margin-block-start: var(--space-4);
+  }
+
+  /* "Writing" section on the home page. */
+  .latest {
+    margin-block-start: var(--space-7);
+    border-block-start: 1px solid var(--rule);
+    padding-block-start: var(--space-6);
+  }
+
+  .latest__title {
+    font-size: var(--step-2);
+    margin-block-end: var(--space-5);
+  }
+
+  .latest__more {
+    margin-block-start: var(--space-6);
+    font-size: var(--step--1);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "recurse": true,
+  "silent": true,
+  "concurrency": 8,
+  "skip": "^(https?://(?!localhost))|mailto:"
+}

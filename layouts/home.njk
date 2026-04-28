@@ -1,0 +1,27 @@
+---
+layout: base.njk
+wide: true
+isHome: true
+bodyClass: home
+---
+<section class="hero hero--logo" aria-labelledby="brand">
+  <h1 id="brand" class="visually-hidden">alankey.dev</h1>
+  <img class="hero__logo" src="/assets/logo.svg" alt="" width="1000" height="600" decoding="async" fetchpriority="high">
+  <div class="hero__intro">
+    {{ content | safe }}
+  </div>
+</section>
+
+{% if collections.latestPosts.length %}
+<section class="latest stack-loose">
+  <h2 class="latest__title">Writing</h2>
+  <ul class="post-list" role="list">
+    {% for post in collections.latestPosts %}
+      <li>{% include "post-card.njk" %}</li>
+    {% endfor %}
+  </ul>
+  {% if collections.posts.length > collections.latestPosts.length %}
+    <p class="latest__more"><a href="/writing/">All writing &rarr;</a></p>
+  {% endif %}
+</section>
+{% endif %}

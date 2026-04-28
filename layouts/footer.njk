@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <nav class="site-footer__nav" aria-label="Site">
+      <ul role="list">
+        {% for item in site.nav %}
+          <li><a href="{{ item.href }}"{% if page.url === item.href or (item.href !== '/' and page.url.startsWith(item.href)) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+        <li><a href="{{ site.feed.path }}">RSS</a></li>
+      </ul>
+    </nav>
+    <ul class="site-footer__elsewhere" role="list">
+      {% for link in site.social %}
+        <li><a href="{{ link.href }}" rel="me noopener">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    <small>&copy; {{ currentYear }} {{ site.author.name }}.</small>
+  </div>
+</footer>

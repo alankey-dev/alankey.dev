@@ -1,0 +1,22 @@
+---
+layout: base.njk
+isPost: true
+---
+<article class="prose">
+  <header class="stack-tight">
+    <h1>{{ title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+      {% if updated and (updated | isoDate) !== (date | isoDate) %}
+        &middot; Updated <time datetime="{{ updated | isoDate }}">{{ updated | readableDate }}</time>
+      {% endif %}
+    </p>
+  </header>
+
+  {{ content | safe }}
+
+  <footer class="post-footer">
+    <a href="/writing/">&larr; All writing</a>
+    <a href="/">Home</a>
+  </footer>
+</article>

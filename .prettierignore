@@ -1,0 +1,7 @@
+_site/
+node_modules/
+coverage/
+.lighthouseci/
+package-lock.json
+*.min.js
+*.min.css

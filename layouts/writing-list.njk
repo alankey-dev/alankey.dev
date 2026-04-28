@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<header class="stack-tight">
+  <h1>Writing</h1>
+  {{ content | safe }}
+</header>
+
+{% if collections.posts.length %}
+  <ul class="post-list stack-loose" role="list">
+    {% for post in collections.posts %}
+      <li>{% include "post-card.njk" %}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No posts yet. Check back soon.</p>
+{% endif %}

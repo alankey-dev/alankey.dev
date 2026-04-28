@@ -1,0 +1,49 @@
+{
+  "name": "alankey-dev",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal website at alankey.dev. Plain semantic HTML, modern CSS, vanilla JavaScript. Built with Eleventy.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "rm -rf _site .lighthouseci",
+    "prebuild": "node scripts/build/generate-favicons.mjs && node scripts/build/generate-og-card.mjs",
+    "dev": "ELEVENTY_ENV=development eleventy --serve --port=8080",
+    "build": "ELEVENTY_ENV=production eleventy",
+    "format": "prettier --write .",
+    "lint": "npm-run-all --parallel lint:js lint:css",
+    "lint:js": "eslint scripts tests eleventy.config.js _data",
+    "lint:css": "stylelint \"styles/**/*.css\"",
+    "test:html": "html-validate \"_site/**/*.html\"",
+    "test:a11y": "axe _site/**/*.html",
+    "test:perf": "lhci autorun",
+    "test:links": "BASE_URL=https://alankey.dev npm run build && linkinator _site --recurse --silent --skip \"^https?://(?!alankey\\\\.dev)|^mailto:\"",
+    "test:unit": "node --test --experimental-test-coverage 'tests/unit/*.test.mjs'",
+    "test": "npm-run-all --sequential lint clean build test:html test:a11y test:perf test:links test:unit"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-plugin-bundle": "^3.0.7",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@axe-core/cli": "^4.11.2",
+    "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.15.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "html-validate": "^10.13.1",
+    "linkinator": "^7.6.1",
+    "markdown-it": "^14.1.1",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-footnote": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.8.3",
+    "serve": "^14.2.6",
+    "sharp": "^0.34.5",
+    "shiki": "^4.0.2",
+    "stylelint": "^17.9.1",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}

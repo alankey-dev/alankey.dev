@@ -1,0 +1,14 @@
+{
+  "extends": ["html-validate:recommended", "html-validate:document"],
+  "rules": {
+    "prefer-native-element": "error",
+    "no-trailing-whitespace": "off",
+    "void-style": "off",
+    "no-inline-style": "off",
+    "attribute-boolean-style": "off",
+    "no-redundant-role": "off",
+    "require-sri": "off",
+    "attribute-empty-style": "off",
+    "doctype-style": ["error", { "style": "lowercase" }]
+  }
+}

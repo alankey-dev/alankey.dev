@@ -1,0 +1,24 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "selector-max-id": 0,
+    "alpha-value-notation": "number",
+    "color-function-notation": "modern",
+    "hue-degree-notation": "number",
+    "no-descending-specificity": null,
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?$",
+      { "message": "Class names must be kebab-case BEM (block, block__element, block--modifier)." }
+    ],
+    "custom-property-pattern": [
+      "^[a-z][a-z0-9]*(?:-{1,2}[a-z0-9]+)*$",
+      { "message": "Custom property names must be lowercase kebab-case." }
+    ],
+    "value-keyword-case": ["lower", { "ignoreProperties": ["/^font/"] }],
+    "custom-property-empty-line-before": null,
+    "declaration-property-value-no-unknown": null,
+    "media-feature-range-notation": null,
+    "declaration-no-important": [true, { "severity": "warning" }]
+  },
+  "ignoreFiles": ["_site/**/*", "node_modules/**/*"]
+}
