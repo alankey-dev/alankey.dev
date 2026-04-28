@@ -12,3 +12,8 @@ coverage/
 .claude/worktrees/
 .claude/skills/
 .specify/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
