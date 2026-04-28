@@ -20,6 +20,7 @@ export default {
   },
   social: [
     { label: "GitHub", href: "https://github.com/alankey-dev" },
+    { label: "Bluesky", href: "https://bsky.app/profile/alankey.dev" },
     { label: "Email", href: "mailto:hello@alankey.dev" },
   ],
   nav: [

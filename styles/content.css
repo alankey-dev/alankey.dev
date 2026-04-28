@@ -211,6 +211,43 @@
     margin-block-start: var(--space-4);
   }
 
+  .hero__links {
+    inline-size: 100%;
+  }
+
+  .hero__links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3) var(--space-5);
+  }
+
+  .hero__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .hero__links a:hover,
+  .hero__links a:focus-visible {
+    color: var(--link-hover);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+  }
+
+  .hero__icon {
+    inline-size: 1em;
+    block-size: 1em;
+    flex-shrink: 0;
+  }
+
   /* "Writing" section on the home page. */
   .latest {
     margin-block-start: var(--space-7);
