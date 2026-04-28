@@ -6,7 +6,40 @@ bodyClass: home
 ---
 <section class="hero hero--logo" aria-labelledby="brand">
   <h1 id="brand" class="visually-hidden">alankey.dev</h1>
-  <img class="hero__logo" src="/assets/logo.svg" alt="" width="1000" height="600" decoding="async" fetchpriority="high">
+  <svg class="hero__logo" viewBox="0 0 1000 600" width="1000" height="600" role="img" aria-hidden="true" focusable="false">
+    <g transform="translate(1000, 0) scale(-1, 1)">
+      <g transform="translate(0, 600) rotate(-90)">
+        <path d="M 250 870 L 250 210 Q 250 140 320 140 L 470 140 L 470 160 L 350 160 Q 270 160 270 240 L 270 870 Z" fill="#1F1F1F"/>
+        <path d="M 270 870 L 270 240 Q 270 160 350 160 L 470 160 L 470 195 L 350 195 Q 305 195 305 270 L 305 870 Z" fill="#444"/>
+        <path d="M 305 870 L 305 270 Q 305 195 350 195 L 470 195 L 470 220 L 360 220 Q 330 220 330 280 L 330 870 Z" fill="#7A7A7A"/>
+        <g>
+          <rect x="470" y="140" width="55" height="20" fill="#E8E8E8"/>
+          <rect x="470" y="160" width="55" height="35" fill="#B0B0B0"/>
+          <rect x="470" y="195" width="55" height="25" fill="#707070"/>
+          <path d="M 525 140 L 540 152 L 540 208 L 525 220 Z" fill="#909090"/>
+          <path d="M 525 140 L 540 152 L 540 170 L 525 162 Z" fill="#D0D0D0"/>
+          <path d="M 525 196 L 540 188 L 540 208 L 525 220 Z" fill="#5A5A5A"/>
+          <rect x="470" y="140" width="55" height="4" fill="#FFF" opacity="0.7"/>
+          <rect x="470" y="170" width="55" height="3" fill="#FFF" opacity="0.25"/>
+          <line x1="470" y1="140" x2="470" y2="220" stroke="#000" stroke-width="1" opacity="0.5"/>
+        </g>
+        <g>
+          <rect x="250" y="870" width="20" height="55" fill="#707070"/>
+          <rect x="270" y="870" width="35" height="55" fill="#B0B0B0"/>
+          <rect x="305" y="870" width="25" height="55" fill="#707070"/>
+          <path d="M 250 925 L 265 938 L 315 938 L 330 925 Z" fill="#5A5A5A"/>
+          <path d="M 270 925 L 305 925 L 308 938 L 267 938 Z" fill="#909090"/>
+          <rect x="270" y="870" width="35" height="4" fill="#FFF" opacity="0.7"/>
+          <rect x="282" y="870" width="3" height="55" fill="#FFF" opacity="0.25"/>
+          <line x1="250" y1="870" x2="330" y2="870" stroke="#000" stroke-width="1" opacity="0.5"/>
+        </g>
+        <path d="M 270 870 L 270 240 Q 270 160 350 160 L 470 160" fill="none" stroke="#000" stroke-width="0.6" opacity="0.55"/>
+        <path d="M 305 870 L 305 270 Q 305 195 350 195 L 470 195" fill="none" stroke="#000" stroke-width="0.6" opacity="0.55"/>
+        <path d="M 308 860 L 308 272 Q 308 197 352 197 L 470 197 L 470 201 L 352 201 Q 312 201 312 272 L 312 860 Z" fill="#FFF" opacity="0.1"/>
+      </g>
+    </g>
+    <text x="222" y="313" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, 'SF Mono', Menlo, Monaco, 'Courier New', monospace" font-size="20" font-weight="700" letter-spacing="3" fill="#B5C99F">alankey.dev</text>
+  </svg>
   <div class="hero__intro">
     {{ content | safe }}
   </div>
