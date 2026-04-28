@@ -6,14 +6,9 @@ eleventyExcludeFromCollections: true
 permalink: /about/
 ---
 
-<div class="prose">
-
 # About
 
-I'm Alan Gardner. The site name is a small joke: an allen key is the hex
-tool you use when no other tool will do, and "alankey" sounded close
-enough.
-
+Hi! I'm Alan Gardner (Alan Key). 
 I write software for a living and, occasionally, for fun. This site is
 where I put the writing that's longer than a tweet and shorter than a
 book.
@@ -25,13 +20,11 @@ I am most interested in:
 - The moments when a tool finally clicks, and what made the difference.
 
 If you'd like to read posts as they appear, [the feed](/feed.xml) is
-plain Atom: no tracker pixels.
+plain Atom.
 
 ## Elsewhere
 
-- [GitHub](https://github.com/Bigalan09): where my open code lives.
+- [GitHub](https://github.com/alankey-dev): where my open code lives.
 - [Email](mailto:hello@alankey.dev): the most reliable way to reach me.
 
 If something here was useful, I'd love to hear about it.
-
-</div>

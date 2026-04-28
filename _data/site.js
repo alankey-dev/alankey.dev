@@ -12,19 +12,19 @@ const baseUrl = (process.env.BASE_URL || "http://localhost:8080").replace(
 
 export default {
   name: "alankey",
-  tagline: "Alan Gardner writes here.",
+  tagline: "Alan Gardner.",
   baseUrl,
   language: "en-GB",
   author: {
     name: "Alan Gardner",
   },
   social: [
-    { label: "GitHub", href: "https://github.com/Bigalan09" },
+    { label: "GitHub", href: "https://github.com/alankey-dev" },
     { label: "Email", href: "mailto:hello@alankey.dev" },
   ],
   nav: [
     { label: "Home", href: "/" },
-    { label: "Writing", href: "/writing/" },
+    { label: "Blog", href: "/blog/" },
     { label: "About", href: "/about/" },
   ],
   feed: {

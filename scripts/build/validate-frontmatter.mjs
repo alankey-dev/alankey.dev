@@ -128,12 +128,12 @@ export function validateAll(items, ctx = {}) {
 }
 
 function inferKind(item) {
-  // Posts live under content/writing/<slug>/index.md
+  // Posts live under content/blog/<slug>/index.md
   // Pages live elsewhere (content/index.md, content/about.md, content/404.md)
   if (typeof item.inputPath === "string") {
     if (
-      item.inputPath.includes("/writing/") &&
-      !item.inputPath.endsWith("/writing/index.md")
+      item.inputPath.includes("/blog/") &&
+      !item.inputPath.endsWith("/blog/index.md")
     ) {
       return "post";
     }

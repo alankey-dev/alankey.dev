@@ -9,7 +9,7 @@ import {
 const valid = (overrides = {}) => {
   const { frontmatter: fmOverrides = {}, ...rest } = overrides;
   return {
-    inputPath: "content/writing/hello/index.md",
+    inputPath: "content/blog/hello/index.md",
     slug: "hello",
     ...rest,
     frontmatter: {
@@ -158,8 +158,8 @@ describe("validateOne: Page", () => {
 describe("validateAll: slug uniqueness", () => {
   it("rejects two posts with the same slug", () => {
     const items = [
-      valid({ inputPath: "content/writing/hello/index.md", slug: "hello" }),
-      valid({ inputPath: "content/writing/hello-2/index.md", slug: "hello" }),
+      valid({ inputPath: "content/blog/hello/index.md", slug: "hello" }),
+      valid({ inputPath: "content/blog/hello-2/index.md", slug: "hello" }),
     ];
     const errors = validateAll(items, { today: "2026-04-28" });
     assert.ok(errors.some((e) => /slug.*collision/i.test(e)));

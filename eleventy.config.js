@@ -147,7 +147,7 @@ export default async function (eleventyConfig) {
     metadata: {
       language: "en-GB",
       title: "alankey",
-      subtitle: "Alan Gardner writes here.",
+      subtitle: "Alan Gardner.",
       base: process.env.BASE_URL || "https://alankey.dev",
       author: { name: "Alan Gardner" },
     },
@@ -220,8 +220,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (api) => {
     const now = Date.now();
     return api
-      .getFilteredByGlob("content/writing/**/*.md")
-      .filter((item) => !item.inputPath.endsWith("writing/index.md"))
+      .getFilteredByGlob("content/blog/**/*.md")
+      .filter((item) => !item.inputPath.endsWith("blog/index.md"))
       .filter((item) => !item.data.draft)
       .filter((item) => !isProduction || new Date(item.data.date).getTime() <= now)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
@@ -230,8 +230,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection("latestPosts", (api) => {
     const now = Date.now();
     return api
-      .getFilteredByGlob("content/writing/**/*.md")
-      .filter((item) => !item.inputPath.endsWith("writing/index.md"))
+      .getFilteredByGlob("content/blog/**/*.md")
+      .filter((item) => !item.inputPath.endsWith("blog/index.md"))
       .filter((item) => !item.data.draft)
       .filter((item) => !isProduction || new Date(item.data.date).getTime() <= now)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
@@ -285,7 +285,7 @@ function collectMarkdownFiles(root) {
       else if (e.isFile() && e.name.endsWith(".md")) {
         const raw = readFileSync(full, "utf8");
         const { frontmatter, body } = parseFrontmatter(raw);
-        const slug = basename(dirname(full)) === "writing" ? null : basename(dirname(full));
+        const slug = basename(dirname(full)) === "blog" ? null : basename(dirname(full));
         out.push({
           inputPath: full,
           slug: slug || basename(full, ".md"),
