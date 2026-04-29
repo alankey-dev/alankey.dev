@@ -1,13 +1,11 @@
 /* Component-level dark-mode overrides. Token-level dark values live in
- * tokens.css under the prefers-color-scheme media query.
+ * tokens.css under the [data-theme="dark"] selector.
  */
 
 @layer theme {
-  @media (prefers-color-scheme: dark) {
-    .prose .shiki,
-    .prose .shiki span {
-      color: var(--shiki-dark);
-      background-color: var(--shiki-dark-bg);
-    }
+  :root[data-theme="dark"] .prose .shiki,
+  :root[data-theme="dark"] .prose .shiki span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
   }
 }

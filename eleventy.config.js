@@ -193,6 +193,7 @@ export default async function (eleventyConfig) {
   // Ship only the runtime ES module under scripts/. Build helpers under
   // scripts/build/ are dev-only and must not be exposed to visitors.
   eleventyConfig.addPassthroughCopy({ "scripts/code-copy.mjs": "scripts/code-copy.mjs" });
+  eleventyConfig.addPassthroughCopy({ "scripts/theme-toggle.mjs": "scripts/theme-toggle.mjs" });
   eleventyConfig.addPassthroughCopy({ "_redirects": "_redirects" });
 
   // ----- Filters ------------------------------------------------------------

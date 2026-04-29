@@ -4,7 +4,15 @@
     margin-inline: auto;
     inline-size: 100%;
     max-inline-size: var(--container);
-    padding: var(--space-7) var(--gutter) var(--space-6);
+    padding: var(--space-8) var(--gutter) var(--space-6);
+  }
+
+  /* Page header (h1 + tagline) must clear the body content below it.
+   * Inside .prose this is handled by the universal stack rule, but on
+   * pages where the body is a sibling of <header> (e.g. the blog list)
+   * we need an explicit gap. */
+  .site-main > header + * {
+    margin-block-start: var(--space-7);
   }
 
   .site-main--wide {
@@ -17,7 +25,7 @@
 
   /* Back-to-home crumb on inner pages. */
   .back-home {
-    margin: 0 0 var(--space-6);
+    margin: 0 0 var(--space-4);
     font-family: var(--font-mono);
     font-size: var(--step--1);
     color: var(--muted);
@@ -48,6 +56,8 @@
     padding: var(--space-6) var(--gutter);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: var(--space-4);
   }
 
@@ -55,6 +65,7 @@
     display: flex;
     gap: var(--space-4) var(--space-5);
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -76,6 +87,52 @@
   .site-footer small {
     color: var(--muted);
     font-size: inherit;
+  }
+
+  /* Theme toggle. Fixed top-right, unobtrusive. Hidden until JS reveals
+   * it so non-JS visitors aren't presented with a non-functional control. */
+  .theme-toggle {
+    position: fixed;
+    inset-block-start: var(--space-3);
+    inset-inline-end: var(--space-3);
+    z-index: 50;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--sage-soft);
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+      color var(--duration-fast) var(--easing),
+      border-color var(--duration-fast) var(--easing),
+      background-color var(--duration-fast) var(--easing);
+  }
+
+  .theme-toggle:hover {
+    color: var(--sage-strong);
+    border-color: var(--sage);
+  }
+
+  .theme-toggle__icon {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+  }
+
+  .theme-toggle__sun {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .theme-toggle__moon {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .theme-toggle__sun {
+    display: block;
   }
 
   .stack > * + * {

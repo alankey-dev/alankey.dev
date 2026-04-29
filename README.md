@@ -15,8 +15,8 @@ host.
   native modules.
 - Eleventy 3 build, Markdown content, Shiki syntax highlighting at build
   time, Atom feed, AVIF/WebP image pipeline.
-- Self-hosted webfonts: Google Sans Flex (body), Rosarivo (headings).
-- Light-only colour scheme with WCAG 2.2 AA contrast.
+- Self-hosted webfonts: Google Sans Flex (body), Noto Serif (headings).
+- Light by default with optional dark mode toggle, WCAG 2.2 AA contrast.
 
 ## Getting started
 
