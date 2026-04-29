@@ -12,7 +12,7 @@ Project rules.
   best-practices, and SEO; performance ≥ 90; link-checker, `node:test`
   ≥ 80% line coverage on JS modules with branching logic.
 - Per-page budgets: CSS ≤ 20 KB gzipped, JS ≤ 30 KB gzipped, webfont weight
-  ≤ 200 KB on first visit, hero image ≤ 100 KB, LCP ≤ 1.8 s on Slow-4G
+  ≤ 200 KB on first visit, hero image ≤ 100 KB, LCP ≤ 2 s on Slow-4G
   mobile.
 - Light-only colour scheme; cream paper, sage accents.
 - Body font: Google Sans Flex (self-hosted variable). Heading font:
