@@ -72,15 +72,19 @@
     color: var(--ink);
   }
 
+  /* All headings: same family + weight, hierarchy by size only.
+   * Single weight keeps the page heading, section headings, post-card
+   * titles, and prose sub-headings reading as one coherent system. */
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.25;
     text-wrap: balance;
     color: var(--ink);
+    margin-block-start: var(--space-3);
   }
 
   h1 {

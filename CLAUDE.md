@@ -14,9 +14,10 @@ Project rules.
 - Per-page budgets: CSS ≤ 20 KB gzipped, JS ≤ 30 KB gzipped, webfont weight
   ≤ 200 KB on first visit, hero image ≤ 100 KB, LCP ≤ 2 s on Slow-4G
   mobile.
-- Light-only colour scheme; cream paper, sage accents.
+- Light is the default; dark mode is opt-in via toggle and persisted to
+  `localStorage` under the `theme` key. Cream paper, sage accents.
 - Body font: Google Sans Flex (self-hosted variable). Heading font:
-  Rosarivo (self-hosted). System fallbacks in every stack.
+  Noto Serif (self-hosted variable). System fallbacks in every stack.
 - British English in user-facing copy. No em dashes. JavaScript is a
   progressive enhancement; the site MUST be fully usable with JS disabled.
 - Once a post URL ships, it never moves. Renames or deletions become

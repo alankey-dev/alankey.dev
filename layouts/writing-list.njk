@@ -7,6 +7,7 @@ layout: base.njk
 </header>
 
 {% if collections.posts.length %}
+  {% set headingLevel = 2 %}
   <ul class="post-list stack-loose" role="list">
     {% for post in collections.posts %}
       <li>{% include "post-card.njk" %}</li>

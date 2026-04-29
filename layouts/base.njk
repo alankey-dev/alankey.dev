@@ -3,9 +3,36 @@
   <head>
     {% include "meta.njk" %}
     <style>{% inlineCSS "tokens.css", "base.css", "layout.css", "content.css", "theme-dark.css" %}</style>
+    <script>(function(){try{if(localStorage.getItem("theme")==="dark"){document.documentElement.setAttribute("data-theme","dark");var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","{{ site.themeColor.dark }}");}}catch(e){}})();</script>
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     <a class="skip-link" href="#main">Skip to content</a>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Switch to dark theme"
+      data-theme-light="{{ site.themeColor.light }}"
+      data-theme-dark="{{ site.themeColor.dark }}"
+      hidden
+    >
+      <svg class="theme-toggle__icon theme-toggle__moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="2" x2="12" y2="5"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="5" y2="12"/>
+          <line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/>
+          <line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/>
+          <line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/>
+          <line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/>
+        </g>
+      </svg>
+    </button>
     <main id="main" class="site-main {% if wide %}site-main--wide{% endif %}">
       {% if not isHome %}
         <p class="back-home"><a href="/">&larr; alankey.dev</a></p>
@@ -13,6 +40,7 @@
       {{ content | safe }}
     </main>
     {% include "footer.njk" %}
+    <script type="module" src="/scripts/theme-toggle.mjs"></script>
     {% if isPost %}
       <script type="module" src="/scripts/code-copy.mjs"></script>
     {% endif %}
