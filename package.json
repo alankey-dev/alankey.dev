@@ -17,10 +17,10 @@
     "lint:js": "eslint scripts tests eleventy.config.js _data",
     "lint:css": "stylelint \"styles/**/*.css\"",
     "test:html": "html-validate \"_site/**/*.html\"",
-    "test:a11y": "axe _site/**/*.html",
+    "test:a11y": "node scripts/build/run-axe.mjs",
     "test:perf": "lhci autorun",
     "test:links": "BASE_URL=https://alankey.dev npm run build && linkinator _site --recurse --silent --skip \"^https?://(?!alankey\\\\.dev)|^mailto:\"",
-    "test:unit": "node --test --experimental-test-coverage 'tests/unit/*.test.mjs'",
+    "test:unit": "node --test --experimental-test-coverage tests/unit/*.test.mjs",
     "test": "npm-run-all --sequential lint clean build test:html test:a11y test:perf test:links test:unit"
   },
   "devDependencies": {

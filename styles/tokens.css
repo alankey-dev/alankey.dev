@@ -1,6 +1,6 @@
 /* Design tokens. Single source of truth for colour, spacing, type, and
  * radii. Component CSS MUST reference tokens; never hard-code values.
- * See specs/001-personal-website/research.md §9 for derivation.
+ * Light by default. Dark variant via prefers-color-scheme.
  */
 
 @layer reset, base, layout, content, theme;
@@ -9,7 +9,7 @@
   font-family: "Google Sans Flex";
   font-style: normal;
   font-weight: 100 1000;
-  font-display: swap;
+  font-display: optional;
   src: url("/assets/fonts/google-sans-flex-latin.woff2") format("woff2");
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
@@ -21,7 +21,7 @@
   font-family: Rosarivo;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("/assets/fonts/rosarivo-latin.woff2") format("woff2");
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
@@ -30,34 +30,18 @@
 }
 
 :root {
-  /* Greys derived from the logo. */
-  --grey-100: #f5f5f5;
-  --grey-200: #e8e8e8;
-  --grey-300: #b0b0b0;
-  --grey-400: #909090;
-  --grey-500: #7a7a7a;
-  --grey-600: #5a5a5a;
-  --grey-700: #444;
-  --grey-800: #2a2a2a;
-  --grey-900: #1f1f1f;
+  color-scheme: light dark;
 
-  /* Brand accent: soft sage. */
-  --brand-sage: #88a57e;
-  --brand-sage-deep: #4f6e45; /* AA on cream; used for interactive accents */
-
-  /* Light scheme. Warm cream paper, near-black ink. v1 ships light only. */
-  color-scheme: light;
-  --surface: #fdfcf7;
-  --surface-elevated: #fff;
-  --ink: #1a1a1a;
-  --ink-muted: #555;
-  --rule: #e8e4d8;
-  --link: #1a1a1a; /* ink-coloured links with underline */
-  --link-hover: var(--brand-sage-deep); /* deep sage, AA on cream */
-  --accent: var(--brand-sage); /* graphical use only */
-  --code-bg: #f1ede1;
-  --code-ink: #1a1a1a;
-  --selection: rgb(136 165 126 / 0.4);
+  /* Light palette: sage on near-white. */
+  --bg: #f6f7f4;
+  --surface: #fff;
+  --ink: #1f2a24;
+  --muted: #5b6b62;
+  --sage: #4f7148;
+  --sage-strong: #345a31;
+  --sage-soft: #e3ecdf;
+  --focus: #2a4a3a;
+  --selection: rgb(122 155 118 / 0.35);
 
   /* Spacing scale (0.25rem step). */
   --space-1: 0.25rem;
@@ -69,25 +53,28 @@
   --space-7: 3rem;
   --space-8: 4.5rem;
 
-  /* Type scale (1.2 ratio anchored at 1rem body). */
-  --step--1: 0.833rem;
-  --step-0: 1rem;
-  --step-1: 1.2rem;
-  --step-2: 1.44rem;
-  --step-3: 1.728rem;
-  --step-4: 2.074rem;
-  --step-5: 2.488rem;
+  /* Type scale (1.2 ratio anchored at 1.125rem body). */
+  --step--1: 0.938rem;
+  --step-0: 1.125rem;
+  --step-1: 1.35rem;
+  --step-2: 1.62rem;
+  --step-3: 1.944rem;
+  --step-4: 2.333rem;
+  --step-5: 2.799rem;
 
   /* Radii. */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  /* Layout. */
+  /* Layout. Outer single-column container; prose stays narrower for
+   * comfortable line length. */
+  --container: 64rem;
   --measure: 65ch;
   --gutter: clamp(1rem, 4vw, 2rem);
 
-  /* Type stacks. Self-hosted webfonts with system fallbacks. */
+  /* Type stacks. Self-hosted webfonts with system fallbacks: Google Sans
+   * Flex (variable) for body and UI; Rosarivo for display headings. */
   --font-body:
     "Google Sans Flex", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
     arial, sans-serif;
@@ -101,6 +88,20 @@
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131a16;
+    --surface: #1c2520;
+    --ink: #e7ede5;
+    --muted: #a3b3a8;
+    --sage: #a5c19f;
+    --sage-strong: #c8dcc1;
+    --sage-soft: #243029;
+    --focus: #c8dcc1;
+    --selection: rgb(165 193 159 / 0.3);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
